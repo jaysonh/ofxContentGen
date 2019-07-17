@@ -15,11 +15,10 @@ namespace ofxContentGen
         height = h;
         
         fbo.allocate(width,height);
-    }
-    void ofxContentGenBase::drawGui()
-    {
         
+        gui.setup();
     }
+    
     
     
     ofTexture ofxContentGenBase::getTexture()

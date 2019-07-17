@@ -16,13 +16,16 @@ namespace ofxContentGen
     class ofxContentGenBase
     {
     public:
+        
         void         init( int w, int h );
-        void         drawGui();
         ofTexture    getTexture();
         
-        virtual void update() = 0;
+        virtual void drawGui() = 0;
+        virtual void update()  = 0;
         
     protected:
+        
+        ofxImGui::Gui gui;
         
         int width;
         int height;
