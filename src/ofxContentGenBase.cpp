@@ -14,7 +14,7 @@ namespace ofxContentGen
         width  = w;
         height = h;
         name   = n;
-        fbo.allocate(width,height); 
+        fbo.allocate(width,height);
     }
     
     ofFbo ofxContentGenBase::getFbo()

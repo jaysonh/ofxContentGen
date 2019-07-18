@@ -58,41 +58,57 @@ namespace ofxContentGen
     
     void   GradientGen::setJson( ofJson json )
     {
-        for(int i = 0; i < 4; i++)
-        {
-            colSelector[i].x = json[i][0][0];
-            colSelector[i].y = json[i][0][0];
-            colSelector[i].z = json[i][0][0];
-        }
+        name   = json["name"];
+        width  = json["width"];
+        height = json["height"];
+        
+        init( width, height, name );
+        
+        colSelector[0].x = json["corner0"][0];
+        colSelector[0].y = json["corner0"][1];
+        colSelector[0].z = json["corner0"][2];
+    
+        colSelector[1].x = json["corner1"][0];
+        colSelector[1].y = json["corner1"][1];
+        colSelector[1].z = json["corner1"][2];
+    
+        colSelector[2].x = json["corner2"][0];
+        colSelector[2].y = json["corner2"][1];
+        colSelector[2].z = json["corner2"][2];
+    
+        colSelector[3].x = json["corner3"][0];
+        colSelector[3].y = json["corner3"][1];
+        colSelector[3].z = json["corner3"][2];
+        
     }
     
     ofJson GradientGen::getJson()
     {
-        ofJson json = {
-            {"name",name},
-            {"width",width},
-            {"height",height},
-                            {
-                                colSelector[0].x,
-                                colSelector[0].y,
-                                colSelector[0].z
-                            },
-                            {
-                                colSelector[1].x,
-                                colSelector[1].y,
-                                colSelector[1].z
-                            },
-                            {
-                                colSelector[2].x,
-                                colSelector[2].y,
-                                colSelector[2].z
-                            },
-                            {
-                                colSelector[3].x,
-                                colSelector[3].y,
-                                colSelector[3].z
-                            }
-                      };
+        ofJson json;
+        
+        json["name"]   = name;
+        json["width"]  = width;
+        json["height"] = height;
+        json["corner0"] = {
+                            colSelector[0].x,
+                            colSelector[0].y,
+                            colSelector[0].z
+                          };
+        json["corner1"] = {
+                            colSelector[1].x,
+                            colSelector[1].y,
+                            colSelector[1].z
+                          };
+        json["corner2"] = {
+                            colSelector[2].x,
+                            colSelector[2].y,
+                            colSelector[2].z
+                          };
+        json["corner3"] = {
+                            colSelector[3].x,
+                            colSelector[3].y,
+                            colSelector[3].z
+                          };
         
         return json;
     }
