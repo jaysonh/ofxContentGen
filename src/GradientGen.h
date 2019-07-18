@@ -14,8 +14,11 @@ namespace ofxContentGen
     {
     public:
         
+        GradientGen(int w, int h, string name);
         void update();
         void drawGui();
+        ofJson getJson();
+        void   setJson( ofJson json );
     private:
         static const int NUM_CORNERS = 4;
         

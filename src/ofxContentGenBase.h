@@ -17,19 +17,26 @@ namespace ofxContentGen
     {
     public:
         
-        void         init( int w, int h );
+        void         init( int w, int h, string name );
         ofTexture    getTexture();
+        ofFbo        getFbo();
         
-        virtual void drawGui() = 0;
-        virtual void update()  = 0;
+        virtual void   drawGui() = 0;
+        virtual void   update()  = 0;
+        virtual ofJson getJson() = 0;
+        virtual void   setJson( ofJson json ) = 0;
+        
+        int getWidth()   { return width;  }
+        int getHeight()  { return height; }
+        string getName() { return name;   }
+        
         
     protected:
         
-        ofxImGui::Gui gui;
-        
-        int width;
-        int height;
-        ofFbo fbo;
+        string name;
+        int    width;
+        int    height;
+        ofFbo  fbo;
     };
 }
 

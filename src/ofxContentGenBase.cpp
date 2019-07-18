@@ -9,17 +9,18 @@
 
 namespace ofxContentGen
 {
-    void ofxContentGenBase::init( int w, int h)
+    void ofxContentGenBase::init( int w, int h, string n)
     {
         width  = w;
         height = h;
-        
-        fbo.allocate(width,height);
-        
-        gui.setup();
+        name   = n;
+        fbo.allocate(width,height); 
     }
     
-    
+    ofFbo ofxContentGenBase::getFbo()
+    {
+        return fbo;
+    }
     
     ofTexture ofxContentGenBase::getTexture()
     {
