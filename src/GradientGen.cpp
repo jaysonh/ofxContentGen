@@ -118,7 +118,7 @@ namespace ofxContentGen
         for(int i = 0; i < NUM_CORNERS;i++)
         {
             string label = "col"+ofToString(i) + name;
-            cout <<label<<endl;
+            
             ImGui::ColorEdit3(label.c_str(), (float*)&colSelector[i]);
         }
     }

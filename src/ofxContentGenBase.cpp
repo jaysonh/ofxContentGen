@@ -14,9 +14,10 @@ namespace ofxContentGen
         width  = w;
         height = h;
         name   = n;
-        fbo.allocate(width,height);
-    }
-    
+        cout << "1" << endl; 
+	fbo.allocate(width,height);
+        cout << "2"<<endl; 
+    } 
     ofFbo ofxContentGenBase::getFbo()
     {
         return fbo;
